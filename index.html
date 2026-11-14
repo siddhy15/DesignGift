@@ -2,882 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Yazhini Atelier | Haute Couture & Creative Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fbf9ff">
+  <meta name="description" content="A welcoming creative studio for dress design, drawing, and handmade crafts.">
+  <title>Yazhini Atelier | Creative Studio & Dress Design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --lav-50: #fbf9ff;
-      --lav-100: #f4ecfe;
-      --lav-200: #e8dbfc;
-      --lav-300: #d1bdf8;
-      --lav-400: #b595f2;
-      --lav-600: #8453ce;
-      --lav-700: #6b3ab7;
-      --lav-900: #291547;
-      --card-bg: rgba(255, 255, 255, 0.98);
-      --border-lav: #e6dbfc;
-      --font-serif: 'Playfair Display', serif;
-      --font-sans: 'Plus Jakarta Sans', sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      font-family: var(--font-sans);
-      background: linear-gradient(180deg, #fbf9ff 0%, #f3ebfd 100%);
-      color: var(--lav-900);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-bottom: 72px;
-      user-select: none;
-    }
-
-    input {
-      user-select: text;
-      -webkit-user-select: text;
-    }
-
-    .app-viewport {
-      width: 100%;
-      max-width: 480px;
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-lav);
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-box h1 {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      color: var(--lav-700);
-      line-height: 1.1;
-    }
-
-    .logo-box span {
-      font-size: 0.68rem;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: #8c75aa;
-      font-weight: 600;
-    }
-
-    .profile-pill {
-      background: var(--lav-100);
-      border: 1px solid var(--border-lav);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--lav-700);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .sid-panel {
-      display: none;
-      background: #ffffff;
-      border: 2px dashed var(--lav-600);
-      border-radius: 14px;
-      padding: 14px;
-      box-shadow: 0 4px 16px rgba(107, 58, 183, 0.08);
-    }
-
-    .sid-panel h3 {
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      color: var(--lav-700);
-      margin-bottom: 4px;
-    }
-
-    .sid-status-box {
-      font-size: 0.86rem;
-      padding: 10px 12px;
-      border-radius: 8px;
-      background: var(--lav-50);
-      margin: 8px 0;
-      border: 1px solid var(--border-lav);
-    }
-
-    .btn-action {
-      background: var(--lav-700);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-lav);
-      border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 6px 20px rgba(107, 58, 183, 0.05);
-    }
-
-    .section-label {
-      font-family: var(--font-serif);
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--lav-900);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .scroll-row {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      margin-bottom: 10px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-
-    .scroll-row::-webkit-scrollbar {
-      display: none;
-    }
-
-    .chip-item {
-      flex: 0 0 auto;
-      background: var(--lav-100);
-      border: 1px solid var(--border-lav);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      color: var(--lav-900);
-      cursor: pointer;
-    }
-
-    .chip-item.active {
-      background: var(--lav-700);
-      color: white;
-      border-color: var(--lav-700);
-    }
-
-    .color-swatch-row {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 4px 0 8px 0;
-    }
-
-    .color-dot {
-      width: 34px;
-      height: 34px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      border: 2px solid white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      cursor: pointer;
-      transition: transform 0.15s;
-    }
-
-    .color-dot.active {
-      transform: scale(1.18);
-      outline: 2px solid var(--lav-700);
-    }
-
-    .canvas-wrap {
-      position: relative;
-      width: 100%;
-      background: #ffffff;
-      border-radius: 14px;
-      border: 1px solid var(--border-lav);
-      overflow: hidden;
-      touch-action: none;
-      display: flex;
-      justify-content: center;
-    }
-
-    canvas {
-      display: block;
-      touch-action: none;
-      background: #ffffff;
-    }
-
-    .tool-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .btn-tool {
-      background: var(--lav-100);
-      color: var(--lav-700);
-      border: 1px solid var(--border-lav);
-      padding: 9px 0;
-      border-radius: 10px;
-      font-size: 0.76rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .btn-tool.primary {
-      background: var(--lav-700);
-      color: white;
-      border-color: var(--lav-700);
-    }
-
-    .craft-tray {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 6px;
-      background: var(--lav-50);
-      padding: 8px;
-      border-radius: 12px;
-      border: 1px solid var(--border-lav);
-    }
-
-    .craft-btn {
-      background: white;
-      border: 1px solid var(--border-lav);
-      border-radius: 8px;
-      font-size: 1.25rem;
-      padding: 6px 0;
-      cursor: pointer;
-    }
-
-    .craft-btn.active {
-      background: var(--lav-200);
-      border-color: var(--lav-700);
-    }
-
-    .gallery-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 6px;
-    }
-
-    .gallery-card {
-      background: white;
-      border: 1px solid var(--border-lav);
-      border-radius: 12px;
-      padding: 8px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .gallery-card img {
-      width: 100%;
-      height: 140px;
-      object-fit: contain;
-      background: var(--lav-50);
-      border-radius: 8px;
-    }
-
-    .gallery-title {
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--lav-900);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    footer.bottom-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 54px;
-      background: rgba(255, 255, 255, 0.95);
-      border-top: 1px solid var(--border-lav);
-      backdrop-filter: blur(10px);
-      padding: 0 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 50;
-    }
-
-    .signed-user {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--lav-700);
-    }
-
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(28, 12, 48, 0.72);
-      backdrop-filter: blur(6px);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .modal-content {
-      background: white;
-      width: 100%;
-      max-width: 400px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 20px;
-      padding: 22px 18px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.28);
-    }
-
-    .modal-content h2 {
-      font-family: var(--font-serif);
-      font-size: 1.3rem;
-      color: var(--lav-700);
-      margin-bottom: 8px;
-    }
-
-    .letter-body {
-      text-align: left;
-      background: #faf7ff;
-      border: 1px solid var(--border-lav);
-      border-left: 4px solid var(--lav-600);
-      padding: 14px;
-      border-radius: 10px;
-      font-size: 0.83rem;
-      line-height: 1.5;
-      color: #3b2d50;
-      margin: 12px 0;
-    }
-
-    .input-box {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 2px solid var(--border-lav);
-      font-size: 1rem;
-      margin: 10px 0 14px;
-      text-align: center;
-      outline: none;
-      color: var(--lav-900);
-      background: #ffffff;
-    }
-
-    .input-box:focus {
-      border-color: var(--lav-700);
-    }
+    :root{--lav-50:#fbf9ff;--lav-100:#f4ecfe;--lav-200:#e8dbfc;--lav-300:#d1bdf8;--lav-600:#8453ce;--lav-700:#6b3ab7;--lav-900:#291547;--border-lav:#e6dbfc;--font-serif:'Playfair Display',serif;--font-sans:'Plus Jakarta Sans',sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    body{font-family:var(--font-sans);background:linear-gradient(180deg,#fbf9ff 0%,#f3ebfd 100%);color:var(--lav-900);min-height:100vh;padding-bottom:78px}
+    button,input{font:inherit}button{cursor:pointer}input{user-select:text;-webkit-user-select:text}
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-lav);padding:12px 16px;display:flex;justify-content:space-between;align-items:center}
+    .logo-box h1{font:700 1.25rem/1.1 var(--font-serif);color:var(--lav-700)}.logo-box span{font-size:.68rem;letter-spacing:.8px;text-transform:uppercase;color:#8c75aa;font-weight:600}
+    .profile-pill,.btn-action{background:var(--lav-700);color:white;border:0;border-radius:20px;padding:8px 13px;font-size:.78rem;font-weight:600}.profile-pill{background:var(--lav-100);border:1px solid var(--border-lav);color:var(--lav-700);display:flex;gap:6px;align-items:center}
+    .app-viewport{width:100%;max-width:520px;margin:auto;padding:12px;display:flex;flex-direction:column;gap:14px}
+    .card,.sid-panel{background:rgba(255,255,255,.98);border:1px solid var(--border-lav);border-radius:18px;padding:14px;box-shadow:0 6px 20px rgba(107,58,183,.05)}.sid-panel{display:none;border:2px dashed var(--lav-600)}.sid-panel h3{font:700 1.05rem var(--font-serif);color:var(--lav-700)}.sid-status-box{font-size:.86rem;padding:10px 12px;border-radius:8px;background:var(--lav-50);margin:8px 0;border:1px solid var(--border-lav)}
+    .section-label{font:700 .98rem var(--font-serif);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;gap:8px}.scroll-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.scroll-row::-webkit-scrollbar{display:none}
+    .chip-item{flex:0 0 auto;background:var(--lav-100);border:1px solid var(--border-lav);padding:7px 13px;border-radius:20px;font-size:.74rem;font-weight:600;color:var(--lav-900);white-space:nowrap}.chip-item.active{background:var(--lav-700);color:white;border-color:var(--lav-700)}
+    .color-swatch-row{display:flex;gap:10px;overflow-x:auto;padding:6px 3px 8px}.color-dot{width:34px;height:34px;flex:0 0 auto;border-radius:50%;border:2px solid white;box-shadow:0 2px 6px #0002}.color-dot.active{transform:scale(1.13);outline:2px solid var(--lav-700)}
+    .canvas-wrap{width:100%;background:#fff;border-radius:14px;border:1px solid var(--border-lav);overflow:hidden;touch-action:none;display:flex;justify-content:center}canvas{display:block;width:100%;height:auto;touch-action:none;background:#fff}
+    .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.btn-tool{background:var(--lav-100);color:var(--lav-700);border:1px solid var(--border-lav);padding:10px 6px;border-radius:10px;font-size:.76rem;font-weight:600}.btn-tool.primary{background:var(--lav-700);color:white;border-color:var(--lav-700)}
+    .craft-tray{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:var(--lav-50);padding:8px;border-radius:12px;border:1px solid var(--border-lav)}.craft-btn{background:white;border:1px solid var(--border-lav);border-radius:8px;font-size:1.25rem;padding:6px 0}.craft-btn.active{background:var(--lav-200);border-color:var(--lav-700)}
+    .gallery-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:6px}.gallery-card{background:white;border:1px solid var(--border-lav);border-radius:12px;padding:8px;display:flex;flex-direction:column;gap:5px;min-width:0}.gallery-card img{width:100%;height:140px;object-fit:contain;background:var(--lav-50);border-radius:8px}.gallery-title{font-size:.74rem;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.gallery-delete{background:transparent;border:0;color:#6b3ab7;text-align:left;font-size:.7rem;font-weight:600;padding:3px 0}
+    footer.bottom-bar{position:fixed;bottom:0;left:0;right:0;min-height:58px;background:rgba(255,255,255,.96);border-top:1px solid var(--border-lav);backdrop-filter:blur(10px);padding:7px max(12px,calc((100vw - 500px)/2));display:flex;justify-content:space-between;align-items:center;gap:8px;z-index:50}.signed-user{font-size:.76rem;font-weight:600;color:var(--lav-700);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.footer-actions{display:flex;gap:6px}.footer-actions .btn-action{border-radius:8px;padding:8px 10px;white-space:nowrap}
+    .modal-overlay{position:fixed;inset:0;background:rgba(28,12,48,.75);backdrop-filter:blur(6px);z-index:999;display:flex;align-items:center;justify-content:center;padding:16px}.modal-content{background:white;width:100%;max-width:400px;max-height:90vh;overflow-y:auto;border-radius:20px;padding:22px 18px;text-align:center;box-shadow:0 20px 40px #0004}.modal-content h2{font:700 1.3rem var(--font-serif);color:var(--lav-700);margin-bottom:8px}.letter-body{text-align:left;background:#faf7ff;border:1px solid var(--border-lav);border-left:4px solid var(--lav-600);padding:14px;border-radius:10px;font-size:.83rem;line-height:1.5;color:#3b2d50;margin:12px 0}.input-box{width:100%;padding:12px;border-radius:10px;border:2px solid var(--border-lav);font-size:1rem;margin:10px 0 14px;text-align:center;outline:none;color:var(--lav-900);background:white}.input-box:focus{border-color:var(--lav-700)}.muted{font-size:.84rem;color:#666;line-height:1.5}
+    @media(min-width:700px){.app-viewport{padding-top:18px}.canvas-wrap{max-height:70vh}canvas{max-width:100%;width:auto;height:min(70vh,620px)}}
   </style>
 </head>
 <body>
   <header>
-    <div class="logo-box">
-      <h1>Atelier Yazhini</h1>
-      <span>Creative Studio & Dress Design</span>
-    </div>
-    <div class="profile-pill" onclick="promptLogin()">
-      <span>👤</span> <span id="headerName">Guest</span>
-    </div>
+    <div class="logo-box"><h1>Atelier Yazhini</h1><span>Creative Studio &amp; Dress Design</span></div>
+    <button type="button" class="profile-pill" onclick="promptLogin()" aria-label="Switch designer name"><span aria-hidden="true">👤</span><span id="headerName">Guest</span></button>
   </header>
-
-  <div class="app-viewport">
-    <div class="sid-panel" id="sidPanel">
+  <main class="app-viewport">
+    <section class="sid-panel" id="sidPanel" aria-label="Private dashboard">
       <h3>Sid's Private Dashboard</h3>
-      <div class="sid-status-box" id="sidStatus">Checking Yazhini's response...</div>
-      <button type="button" class="btn-action" onclick="resetReply()">Clear Reply & Ask Again</button>
-    </div>
-
-    <section class="card">
-      <div class="section-label">
-        <span>✏️ 1. Drawing Templates</span>
-      </div>
-      <div class="scroll-row">
-        <div class="chip-item active" onclick="setTemplate('bouquet', this)">💐 Bouquet</div>
-        <div class="chip-item" onclick="setTemplate('butterfly', this)">🦋 Butterfly</div>
-        <div class="chip-item" onclick="setTemplate('cat', this)">🐱 Cute Cat</div>
-        <div class="chip-item" onclick="setTemplate('heart', this)">☁️ Hearts & Stars</div>
-        <div class="chip-item" onclick="setTemplate('leaf', this)">🍃 Botanical Leaf</div>
-        <div class="chip-item" onclick="setTemplate('house', this)">🏡 Dream House</div>
-        <div class="chip-item" onclick="setTemplate('ballgown', this)">👗 Ballgown</div>
-        <div class="chip-item" onclick="setTemplate('blank', this)">📄 Blank Canvas</div>
-      </div>
+      <div class="sid-status-box" id="sidStatus" aria-live="polite">Message Status: Waiting for Yazhini...</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button type="button" class="btn-action" onclick="resetReply()">Clear Reply &amp; Ask Again</button><button type="button" class="btn-action" style="background:var(--lav-600)" onclick="showLetter()">Preview Note Popup</button></div>
     </section>
-
-    <section class="card">
-      <div class="section-label">
-        <span>✂️ 2. Ready-Made Crafts</span>
-      </div>
-      <div class="scroll-row">
-        <div class="chip-item" onclick="setTemplate('card', this)">💌 Greeting Card</div>
-        <div class="chip-item" onclick="setTemplate('paperfly', this)">🦋 3D Paper Butterfly</div>
-        <div class="chip-item" onclick="setTemplate('giftbox', this)">🎁 Surprise Gift Box</div>
-        <div class="chip-item" onclick="setTemplate('rainbow', this)">🌈 Rainbow Wall Art</div>
-        <div class="chip-item" onclick="setTemplate('totebag', this)">👜 Decorated Tote</div>
-        <div class="chip-item" onclick="setTemplate('bracelet', this)">📿 Charm Bracelet</div>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="section-label">
-        <span>🎨 3. Six Colour Collections</span>
-      </div>
-      <div class="scroll-row">
-        <div class="chip-item active" onclick="loadColorCollection('lavender', this)">💜 Lavender Dreams</div>
-        <div class="chip-item" onclick="loadColorCollection('pastel', this)">🍬 Pastel Candy</div>
-        <div class="chip-item" onclick="loadColorCollection('bright', this)">🔥 Bright & Bold</div>
-        <div class="chip-item" onclick="loadColorCollection('earthy', this)">🌿 Earthy Naturals</div>
-        <div class="chip-item" onclick="loadColorCollection('metallic', this)">✨ Metallic & Jewels</div>
-        <div class="chip-item" onclick="loadColorCollection('mono', this)">🖤 Monochrome</div>
-      </div>
-      <div class="color-swatch-row" id="paletteTray"></div>
-    </section>
-
-    <section class="card">
-      <div class="section-label">
-        <span id="canvasTitle">🎨 Design Workspace</span>
-        <span style="font-size:0.75rem; color:#7d6199;" id="modeHint">Touch to Draw</span>
-      </div>
-      <div class="canvas-wrap">
-        <canvas id="studioCanvas" width="360" height="460"></canvas>
-      </div>
-
-      <div class="tool-grid">
-        <button type="button" class="btn-tool" onclick="undo()">↩ Undo</button>
-        <button type="button" class="btn-tool" onclick="clearCurrentCanvas()">🗑 Clear</button>
-        <button type="button" class="btn-tool primary" onclick="saveDesign()">💾 Save Look</button>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="section-label">
-        <span>💎 Crafts & Accessories</span>
-      </div>
-      <p style="font-size:0.72rem; color:#777; margin-bottom:6px;">Tap a stamp, then tap anywhere on your drawing (tap again to switch back to brush):</p>
-      <div class="craft-tray">
-        <button type="button" class="craft-btn" onclick="selectStamp('💎', this)">💎</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('👑', this)">👑</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('🎀', this)">🎀</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('🌹', this)">🌹</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('🌸', this)">🌸</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('✨', this)">✨</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('👜', this)">👜</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('👠', this)">👠</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('🦋', this)">🦋</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('💜', this)">💜</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('⭐', this)">⭐</button>
-        <button type="button" class="craft-btn" onclick="selectStamp('🪡', this)">🪡</button>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="section-label">
-        <span id="lookbookHeading">✨ Yazhini's Collection</span>
-      </div>
-      <div class="gallery-list" id="galleryFeed"></div>
-    </section>
-  </div>
-
-  <footer class="bottom-bar">
-    <div class="signed-user" id="bottomUser">Signed in as: Guest</div>
-    <div style="display:flex; gap:6px;">
-      <button type="button" class="btn-action" id="reopenLetterBtn" style="display:none; background:var(--lav-600);" onclick="document.getElementById('letterModal').style.display='flex'">Read Note 💌</button>
-      <button type="button" class="btn-action" onclick="showNameAlert()">Name Info</button>
-    </div>
-  </footer>
-
-  <div class="modal-overlay" id="nameModal">
-    <form class="modal-content" onsubmit="event.preventDefault(); saveUserName();">
-      <h2>Welcome, Designer</h2>
-      <p style="font-size:0.84rem; color:#666;">Enter your name to open your private studio and lookbook:</p>
-      <input type="text" id="nameInput" class="input-box" placeholder="e.g. Yazhini" autocomplete="off">
-      <button type="submit" class="btn-tool primary" style="width:100%; padding:12px;">Enter Studio</button>
-    </form>
-  </div>
-
-  <div class="modal-overlay" id="letterModal" style="display:none;">
-    <div class="modal-content">
-      <h2>A Message from Siddhu</h2>
-      <div class="letter-body">
-        <p><strong>Hi Yazhini,</strong></p>
-        <p style="margin-top:6px;">Happy Belated Birthday! My father brought authentic chocolates from Spain especially for me, and I saved them for you.</p>
-        <p style="margin-top:6px;">I wanted to clear up all our past misunderstandings in short—from the 5th & 6th standard note, diary, and my friends' eraser teasing, to Nov 3rd when I panicked and slipped out during sweets, and even when I left the birthday card on your desk and hurried to my van because I was too shy to hand it to you in person (and forgot to add this link!).</p>
-        <p style="margin-top:6px;">I made this studio for your dress designing passion. I'd love to continue our friendship without any awkwardness.</p>
-      </div>
-      <p style="font-size:0.92rem; font-weight:700; margin-bottom:12px;">Do you accept Siddhu's forgive request?</p>
-      <div style="display:flex; gap:10px;">
-        <button type="button" class="btn-tool primary" style="flex:1;" onclick="submitForgive(true)">Yes 🌸</button>
-        <button type="button" class="btn-tool" style="flex:1;" onclick="submitForgive(false)">No</button>
-      </div>
-    </div>
-  </div>
-
+    <section class="card"><div class="section-label">✏️ 1. Drawing Templates</div><div class="scroll-row" id="templateTray">
+      <button class="chip-item active" onclick="setTemplate('bouquet',this)">💐 Bouquet</button><button class="chip-item" onclick="setTemplate('butterfly',this)">🦋 Butterfly</button><button class="chip-item" onclick="setTemplate('cat',this)">🐱 Cute Cat</button><button class="chip-item" onclick="setTemplate('heart',this)">☁️ Hearts &amp; Stars</button><button class="chip-item" onclick="setTemplate('leaf',this)">🍃 Botanical Leaf</button><button class="chip-item" onclick="setTemplate('house',this)">🏡 Dream House</button><button class="chip-item" onclick="setTemplate('ballgown',this)">👗 Ballgown</button><button class="chip-item" onclick="setTemplate('blank',this)">📄 Blank Canvas</button>
+    </div></section>
+    <section class="card"><div class="section-label">✂️ 2. Ready-Made Crafts</div><div class="scroll-row" id="craftTemplates">
+      <button class="chip-item" onclick="setTemplate('card',this)">💌 Greeting Card</button><button class="chip-item" onclick="setTemplate('paperfly',this)">🦋 3D Paper Butterfly</button><button class="chip-item" onclick="setTemplate('giftbox',this)">🎁 Surprise Gift Box</button><button class="chip-item" onclick="setTemplate('rainbow',this)">🌈 Rainbow Wall Art</button><button class="chip-item" onclick="setTemplate('totebag',this)">👜 Decorated Tote</button><button class="chip-item" onclick="setTemplate('bracelet',this)">📿 Charm Bracelet</button>
+    </div></section>
+    <section class="card"><div class="section-label">🎨 3. Six Colour Collections</div><div class="scroll-row" id="collectionTray">
+      <button class="chip-item active" onclick="loadColorCollection('lavender',this)">💜 Lavender Dreams</button><button class="chip-item" onclick="loadColorCollection('pastel',this)">🍬 Pastel Candy</button><button class="chip-item" onclick="loadColorCollection('bright',this)">🔥 Bright &amp; Bold</button><button class="chip-item" onclick="loadColorCollection('earthy',this)">🌿 Earthy Naturals</button><button class="chip-item" onclick="loadColorCollection('metallic',this)">✨ Metallic &amp; Jewels</button><button class="chip-item" onclick="loadColorCollection('mono',this)">🖤 Monochrome</button>
+    </div><div class="color-swatch-row" id="paletteTray" aria-label="Choose a drawing color"></div></section>
+    <section class="card"><div class="section-label"><span id="canvasTitle">🎨 Design Workspace</span><span style="font:500 .72rem var(--font-sans);color:#7d6199" id="modeHint">Touch to Draw</span></div><div class="canvas-wrap"><canvas id="studioCanvas" width="360" height="460" aria-label="Design drawing canvas"></canvas></div><div class="tool-grid"><button type="button" class="btn-tool" onclick="undo()">↩ Undo</button><button type="button" class="btn-tool" onclick="clearCurrentCanvas()">🗑 Clear</button><button type="button" class="btn-tool primary" onclick="saveDesign()">💾 Save Look</button></div></section>
+    <section class="card"><div class="section-label">💎 Crafts &amp; Accessories</div><p style="font-size:.72rem;color:#777;margin-bottom:6px">Tap a stamp, then tap anywhere on your drawing:</p><div class="craft-tray">
+      <button type="button" class="craft-btn" aria-label="Diamond stamp" onclick="selectStamp('💎',this)">💎</button><button type="button" class="craft-btn" aria-label="Crown stamp" onclick="selectStamp('👑',this)">👑</button><button type="button" class="craft-btn" aria-label="Bow stamp" onclick="selectStamp('🎀',this)">🎀</button><button type="button" class="craft-btn" aria-label="Rose stamp" onclick="selectStamp('🌹',this)">🌹</button><button type="button" class="craft-btn" aria-label="Flower stamp" onclick="selectStamp('🌸',this)">🌸</button><button type="button" class="craft-btn" aria-label="Sparkle stamp" onclick="selectStamp('✨',this)">✨</button><button type="button" class="craft-btn" aria-label="Bag stamp" onclick="selectStamp('👜',this)">👜</button><button type="button" class="craft-btn" aria-label="Heel stamp" onclick="selectStamp('👠',this)">👠</button><button type="button" class="craft-btn" aria-label="Butterfly stamp" onclick="selectStamp('🦋',this)">🦋</button><button type="button" class="craft-btn" aria-label="Heart stamp" onclick="selectStamp('💜',this)">💜</button><button type="button" class="craft-btn" aria-label="Star stamp" onclick="selectStamp('⭐',this)">⭐</button><button type="button" class="craft-btn" aria-label="Needle stamp" onclick="selectStamp('🪡',this)">🪡</button>
+    </div></section>
+    <section class="card"><div class="section-label"><span id="lookbookHeading">✨ Your Collection</span></div><div class="gallery-list" id="galleryFeed"></div><p id="emptyGallery" class="muted" style="padding:8px 0">Your saved designs will appear here on this device.</p></section>
+  </main>
+  <footer class="bottom-bar"><div class="signed-user" id="bottomUser">Signed in as: Guest</div><div class="footer-actions"><button type="button" class="btn-action" id="reopenLetterBtn" style="display:none;background:var(--lav-600)" onclick="showLetter()">Read Note 💌</button><button type="button" class="btn-action" onclick="promptLogin()">Switch Name</button></div></footer>
+  <div class="modal-overlay" id="nameModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle"><form class="modal-content" onsubmit="event.preventDefault();saveUserName()"><h2 id="welcomeTitle">Welcome, Designer</h2><p class="muted">Enter your name to open your private studio and lookbook:</p><input type="text" id="nameInput" class="input-box" placeholder="e.g. Yazhini" autocomplete="name" maxlength="40" required><button type="submit" class="btn-tool primary" style="width:100%;padding:12px">Enter Studio</button></form></div>
+  <div class="modal-overlay" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle" style="display:none"><div class="modal-content"><h2 id="letterTitle">A Message from Siddhu</h2><div class="letter-body"><p><strong>Hi Yazhini,</strong></p><p style="margin-top:6px">Happy Belated Birthday! My father brought authentic chocolates from Spain especially for me, and I saved them for you.</p><p style="margin-top:6px">I wanted to clear up all our past misunderstandings in short—from the 5th &amp; 6th standard note, diary, and my friends' eraser teasing, to Nov 3rd when I panicked and slipped out during sweets, and even when I left the birthday card on your desk and hurried to my van because I was too shy to hand it to you in person (and forgot to add this link!).</p><p style="margin-top:6px">I made this studio for your dress designing passion. I'd love to continue our friendship without any awkwardness.</p></div><p style="font-size:.92rem;font-weight:700;margin-bottom:12px">Do you accept Siddhu's forgive request?</p><div style="display:flex;gap:10px"><button type="button" class="btn-tool primary" style="flex:1" onclick="submitForgive(true)">Yes 🌸</button><button type="button" class="btn-tool" style="flex:1" onclick="submitForgive(false)">No</button></div></div></div>
   <script>
-    const colorPacks = {
-      lavender: ['#6b3ab7', '#8453ce', '#9f75ec', '#b595f2', '#d1bdf8', '#f3ecfe'],
-      pastel: ['#ffb3ba', '#ffdfba', '#ffffba', '#baffc9', '#bae1ff', '#e8c5ff'],
-      bright: ['#e63946', '#f77f00', '#fcbf49', '#06d6a0', '#118ab2', '#073b4c'],
-      earthy: ['#606c38', '#283618', '#dda15e', '#bc6c25', '#8d6e63', '#d7ccc8'],
-      metallic: ['#ffd700', '#c0c0c0', '#e5e4e2', '#b76e79', '#50c878', '#0f52ba'],
-      mono: ['#000000', '#333333', '#666666', '#999999', '#cccccc', '#ffffff']
-    };
-
-    const memoryStore = {};
-    function getStore(k) {
-      try { return localStorage.getItem(k); } catch (e) { return memoryStore[k] || null; }
-    }
-    function setStore(k, v) {
-      try { localStorage.setItem(k, v); } catch (e) { memoryStore[k] = v; }
-    }
-    function delStore(k) {
-      try { localStorage.removeItem(k); } catch (e) { delete memoryStore[k]; }
-    }
-
-    let currentUser = getStore('atelier_user') || '';
-    let currentColor = '#8453ce';
-    let currentStamp = null;
-    let currentTemplate = 'bouquet';
-    let historyStack = [];
-
-    const canvas = document.getElementById('studioCanvas');
-    const ctx = canvas.getContext('2d');
-    let drawing = false;
-
-    function initResponsiveCanvas() {
-      const containerW = canvas.parentElement.clientWidth || 340;
-      canvas.width = containerW;
-      canvas.height = Math.round(containerW * 1.3);
-      attachTouchEvents();
-    }
-
-    function promptLogin() {
-      const inputEl = document.getElementById('nameInput');
-      inputEl.value = currentUser;
-      document.getElementById('nameModal').style.display = 'flex';
-      setTimeout(() => inputEl.focus(), 100);
-    }
-
-    function saveUserName() {
-      const inputEl = document.getElementById('nameInput');
-      const val = (inputEl.value || '').trim();
-      if (!val) {
-        inputEl.style.borderColor = '#e63946';
-        inputEl.focus();
-        return;
-      }
-      inputEl.style.borderColor = '#e6dbfc';
-      currentUser = val;
-      setStore('atelier_user', currentUser);
-      document.getElementById('nameModal').style.display = 'none';
-      loginUser(currentUser);
-    }
-
-    function loginUser(name) {
-      const headerName = document.getElementById('headerName');
-      const bottomUser = document.getElementById('bottomUser');
-      const lookbookHeading = document.getElementById('lookbookHeading');
-      const sidPanel = document.getElementById('sidPanel');
-      const sidStatus = document.getElementById('sidStatus');
-      const reopenLetterBtn = document.getElementById('reopenLetterBtn');
-
-      headerName.textContent = name || 'Guest';
-      bottomUser.textContent = 'Signed in as: ' + (name || 'Guest');
-      lookbookHeading.textContent = '✨ ' + (name || 'Yazhini') + "'s Collection";
-
-      if (name && name.trim().toLowerCase().startsWith('sid')) {
-        sidPanel.style.display = 'block';
-        sidStatus.textContent = 'Yazhini is responding warmly — the private note is ready.';
-        document.getElementById('letterModal').style.display = 'flex';
-      } else {
-        sidPanel.style.display = 'none';
-      }
-
-      if (name && name.trim().charAt(0).toLowerCase() === 'y') {
-        reopenLetterBtn.style.display = 'inline-flex';
-      } else {
-        reopenLetterBtn.style.display = 'none';
-      }
-    }
-
-    function resetReply() {
-      const sidStatus = document.getElementById('sidStatus');
-      sidStatus.textContent = 'Starting fresh — asking Yazhini again...';
-      document.getElementById('letterModal').style.display = 'flex';
-    }
-
-    function showNameAlert() {
-      alert('This studio was made for Yazhini. You can change your name anytime and keep customizing your design collection.');
-    }
-
-    function submitForgive(accepted) {
-      document.getElementById('letterModal').style.display = 'none';
-      if (accepted) {
-        document.getElementById('sidStatus').textContent = 'Yazhini accepted the note. The air is clear 🌸';
-      } else {
-        document.getElementById('sidStatus').textContent = 'No pressure — the note is still here when you are ready 🌷';
-      }
-    }
-
-    function loadColorCollection(name, el) {
-      if (el) {
-        el.parentElement.querySelectorAll('.chip-item').forEach(item => item.classList.remove('active'));
-        el.classList.add('active');
-      }
-
-      const tray = document.getElementById('paletteTray');
-      tray.innerHTML = '';
-      colorPacks[name].forEach((hex, index) => {
-        const dot = document.createElement('div');
-        dot.className = 'color-dot' + (index === 0 ? ' active' : '');
-        dot.style.background = hex;
-        dot.onclick = () => {
-          tray.querySelectorAll('.color-dot').forEach(item => item.classList.remove('active'));
-          dot.classList.add('active');
-          currentColor = hex;
-          currentStamp = null;
-          document.getElementById('modeHint').textContent = 'Touch to Draw';
-          document.querySelectorAll('.craft-btn').forEach(btn => btn.classList.remove('active'));
-        };
-        tray.appendChild(dot);
-      });
-
-      currentColor = colorPacks[name][0];
-    }
-
-    function selectStamp(emoji, el) {
-      currentStamp = emoji;
-      document.getElementById('modeHint').textContent = 'Stamp: ' + emoji;
-      document.querySelectorAll('.craft-btn').forEach(btn => btn.classList.remove('active'));
-      if (el) el.classList.add('active');
-    }
-
-    function clearCurrentCanvas() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      setTemplate(currentTemplate);
-    }
-
-    function drawTemplate(name) {
-      const cx = canvas.width / 2;
-      const cy = canvas.height / 2;
-      ctx.save();
-      ctx.strokeStyle = '#d1bdf8';
-      ctx.lineWidth = 2.5;
-      ctx.setLineDash([6, 4]);
-
-      if (name === 'bouquet') {
-        ctx.beginPath();
-        ctx.moveTo(cx - 65, cy - 20);
-        ctx.lineTo(cx + 65, cy - 20);
-        ctx.lineTo(cx, cy + 120);
-        ctx.closePath();
-        ctx.stroke();
-      } else if (name === 'butterfly') {
-        ctx.beginPath();
-        ctx.ellipse(cx - 55, cy - 30, 50, 38, -0.3, 0, Math.PI * 2);
-        ctx.ellipse(cx + 55, cy - 30, 50, 38, 0.3, 0, Math.PI * 2);
-        ctx.stroke();
-      } else if (name === 'cat') {
-        ctx.beginPath();
-        ctx.arc(cx, cy - 20, 70, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.arc(cx - 30, cy - 30, 18, 0, Math.PI * 2);
-        ctx.arc(cx + 30, cy - 30, 18, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(cx - 25, cy + 35);
-        ctx.lineTo(cx, cy + 95);
-        ctx.lineTo(cx + 25, cy + 35);
-        ctx.stroke();
-      } else if (name === 'heart') {
-        ctx.beginPath();
-        ctx.moveTo(cx, cy + 70);
-        ctx.bezierCurveTo(cx + 90, cy + 10, cx + 90, cy - 80, cx, cy - 20);
-        ctx.bezierCurveTo(cx - 90, cy - 80, cx - 90, cy + 10, cx, cy + 70);
-        ctx.stroke();
-      } else if (name === 'leaf') {
-        ctx.beginPath();
-        ctx.moveTo(cx, cy - 110);
-        ctx.quadraticCurveTo(cx + 80, cy - 40, cx, cy + 100);
-        ctx.quadraticCurveTo(cx - 80, cy - 40, cx, cy - 110);
-        ctx.stroke();
-      } else if (name === 'house') {
-        ctx.beginPath();
-        ctx.moveTo(cx - 90, cy + 10);
-        ctx.lineTo(cx, cy - 90);
-        ctx.lineTo(cx + 90, cy + 10);
-        ctx.lineTo(cx + 90, cy + 110);
-        ctx.lineTo(cx - 90, cy + 110);
-        ctx.closePath();
-        ctx.stroke();
-      } else if (name === 'ballgown') {
-        ctx.beginPath();
-        ctx.moveTo(cx - 28, cy - 110);
-        ctx.lineTo(cx + 28, cy - 110);
-        ctx.lineTo(cx + 22, cy - 40);
-        ctx.quadraticCurveTo(cx + 115, cy + 50, cx + 125, cy + 145);
-        ctx.lineTo(cx - 125, cy + 145);
-        ctx.quadraticCurveTo(cx - 115, cy + 50, cx - 22, cy - 40);
-        ctx.closePath();
-        ctx.stroke();
-      } else if (name === 'card') {
-        ctx.strokeRect(cx - 110, cy - 125, 220, 250);
-      } else if (name === 'paperfly') {
-        ctx.beginPath();
-        ctx.ellipse(cx - 55, cy - 25, 42, 58, -0.5, 0, Math.PI * 2);
-        ctx.ellipse(cx + 55, cy - 25, 42, 58, 0.5, 0, Math.PI * 2);
-        ctx.stroke();
-      } else if (name === 'giftbox') {
-        ctx.strokeRect(cx - 90, cy - 60, 180, 160);
-        ctx.beginPath();
-        ctx.moveTo(cx - 90, cy + 20);
-        ctx.lineTo(cx + 90, cy + 20);
-        ctx.moveTo(cx, cy - 60);
-        ctx.lineTo(cx, cy + 100);
-        ctx.stroke();
-      } else if (name === 'rainbow') {
-        ctx.beginPath();
-        ctx.arc(cx, cy + 95, 120, Math.PI, Math.PI * 2);
-        ctx.stroke();
-      } else if (name === 'totebag') {
-        ctx.strokeRect(cx - 70, cy - 80, 140, 170);
-      } else if (name === 'bracelet') {
-        ctx.beginPath();
-        ctx.arc(cx, cy, 90, 0, Math.PI * 2);
-        ctx.stroke();
-      } else if (name === 'blank') {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      }
-
-      ctx.restore();
-    }
-
-    function setTemplate(name, el) {
-      currentTemplate = name;
-      if (el) {
-        el.parentElement.querySelectorAll('.chip-item').forEach(item => item.classList.remove('active'));
-        el.classList.add('active');
-      }
-
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      drawTemplate(name);
-      historyStack = [canvas.toDataURL()];
-      currentStamp = null;
-      document.getElementById('modeHint').textContent = 'Touch to Draw';
-    }
-
-    function undo() {
-      if (historyStack.length <= 1) return;
-      historyStack.pop();
-      const img = new Image();
-      img.onload = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(img, 0, 0);
-      };
-      img.src = historyStack[historyStack.length - 1];
-    }
-
-    function getPos(event) {
-      const rect = canvas.getBoundingClientRect();
-      const touch = event.touches ? event.touches[0] : event;
-      return {
-        x: (touch.clientX - rect.left) * (canvas.width / rect.width),
-        y: (touch.clientY - rect.top) * (canvas.height / rect.height)
-      };
-    }
-
-    function startDraw(event) {
-      event.preventDefault();
-      const point = getPos(event);
-
-      if (currentStamp) {
-        ctx.font = '32px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'middle';
-        ctx.fillText(currentStamp, point.x, point.y);
-        historyStack.push(canvas.toDataURL());
-        return;
-      }
-
-      drawing = true;
-      ctx.beginPath();
-      ctx.moveTo(point.x, point.y);
-      ctx.strokeStyle = currentColor;
-      ctx.lineWidth = 4;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-    }
-
-    function moveDraw(event) {
-      if (!drawing) return;
-      event.preventDefault();
-      const point = getPos(event);
-      ctx.lineTo(point.x, point.y);
-      ctx.stroke();
-    }
-
-    function endDraw() {
-      if (drawing) {
-        drawing = false;
-        historyStack.push(canvas.toDataURL());
-      }
-    }
-
-    function attachTouchEvents() {
-      canvas.addEventListener('mousedown', startDraw);
-      canvas.addEventListener('mousemove', moveDraw);
-      window.addEventListener('mouseup', endDraw);
-      canvas.addEventListener('touchstart', startDraw, { passive: false });
-      canvas.addEventListener('touchmove', moveDraw, { passive: false });
-      canvas.addEventListener('touchend', endDraw);
-    }
-
-    function saveDesign() {
-      const feed = document.getElementById('galleryFeed');
-      const card = document.createElement('div');
-      card.className = 'gallery-card';
-      const label = currentTemplate ? currentTemplate.toUpperCase() : 'LOOK';
-      card.innerHTML = '<img src="' + canvas.toDataURL() + '"><div class="gallery-title">' + label + '</div>';
-      feed.prepend(card);
-    }
-
-    window.addEventListener('load', () => {
-      loadColorCollection('lavender');
-      initResponsiveCanvas();
-      setTemplate('bouquet');
-
-      if (!currentUser) {
-        document.getElementById('nameModal').style.display = 'flex';
-      } else {
-        document.getElementById('nameModal').style.display = 'none';
-        loginUser(currentUser);
-      }
-    });
+    const colorPacks={lavender:['#6b3ab7','#8453ce','#9f75ec','#b595f2','#d1bdf8','#f3ecfe'],pastel:['#ffb3ba','#ffdfba','#ffffba','#baffc9','#bae1ff','#e8c5ff'],bright:['#e63946','#f77f00','#fcbf49','#06d6a0','#118ab2','#073b4c'],earthy:['#606c38','#283618','#dda15e','#bc6c25','#8d6e63','#d7ccc8'],metallic:['#ffd700','#c0c0c0','#e5e4e2','#b76e79','#50c878','#0f52ba'],mono:['#000000','#333333','#666666','#999999','#cccccc','#ffffff']};
+    const memoryStore={};function getStore(k){try{return localStorage.getItem(k)}catch(e){return memoryStore[k]||null}}function setStore(k,v){try{localStorage.setItem(k,v)}catch(e){memoryStore[k]=v}}function delStore(k){try{localStorage.removeItem(k)}catch(e){delete memoryStore[k]}}
+    let currentUser='',currentColor='#8453ce',currentStamp=null,currentTemplate='bouquet',historyStack=[],drawing=false;
+    const canvas=document.getElementById('studioCanvas'),ctx=canvas.getContext('2d');
+    const templateNames={bouquet:'Bouquet',butterfly:'Butterfly',cat:'Cute Cat',heart:'Hearts & Stars',leaf:'Botanical Leaf',house:'Dream House',ballgown:'Ballgown',blank:'Blank Canvas',card:'Greeting Card',paperfly:'3D Paper Butterfly',giftbox:'Surprise Gift Box',rainbow:'Rainbow Wall Art',totebag:'Decorated Tote',bracelet:'Charm Bracelet'};
+    window.addEventListener('load',()=>{loadColorCollection('lavender');initResponsiveCanvas();setTemplate('bouquet');renderGallery();document.getElementById('letterModal').style.display='none';document.getElementById('nameModal').style.display='flex';});
+    function initResponsiveCanvas(){const w=Math.max(280,Math.min(canvas.parentElement.clientWidth||340,700));canvas.width=w;canvas.height=Math.round(w*1.3);attachTouchEvents();setTemplate(currentTemplate)}
+    function promptLogin(){document.getElementById('letterModal').style.display='none';document.getElementById('nameInput').value=currentUser;document.getElementById('nameModal').style.display='flex';setTimeout(()=>document.getElementById('nameInput').focus(),80)}
+    function saveUserName(){const input=document.getElementById('nameInput'),name=(input.value||'').trim();if(!name){input.focus();return}currentUser=name;setStore('atelier_user',name);document.getElementById('nameModal').style.display='none';loginUser(name);renderGallery()}
+    function loginUser(name){document.getElementById('headerName').textContent=name||'Guest';document.getElementById('bottomUser').textContent='Signed in as: '+(name||'Guest');document.getElementById('lookbookHeading').textContent='✨ '+(name||'Your')+"'s Collection";const isSid=!!name&&name.trim().toLowerCase().startsWith('sid');document.getElementById('sidPanel').style.display=isSid?'block':'none';if(isSid)document.getElementById('sidStatus').textContent='Message Status: Waiting for Yazhini...';document.getElementById('reopenLetterBtn').style.display=name&&name.trim().toLowerCase().startsWith('y')?'inline-flex':'none'}
+    function showLetter(){document.getElementById('letterModal').style.display='flex'}function resetReply(){document.getElementById('sidStatus').textContent='Message Status: Waiting for Yazhini...';showLetter()}
+    function submitForgive(accepted){document.getElementById('letterModal').style.display='none';document.getElementById('sidStatus').textContent=accepted?'Reply saved on this device: Yes 🌸':'Reply saved on this device: No';setStore('atelier_reply',accepted?'yes':'no')}
+    function loadColorCollection(name,el){if(el){el.parentElement.querySelectorAll('.chip-item').forEach(x=>x.classList.remove('active'));el.classList.add('active')}const tray=document.getElementById('paletteTray');tray.replaceChildren();colorPacks[name].forEach((hex,i)=>{const dot=document.createElement('button');dot.type='button';dot.className='color-dot'+(i===0?' active':'');dot.style.background=hex;dot.setAttribute('aria-label','Use color '+hex);dot.onclick=()=>{tray.querySelectorAll('.color-dot').forEach(x=>x.classList.remove('active'));dot.classList.add('active');currentColor=hex;selectBrush()};tray.appendChild(dot)});currentColor=colorPacks[name][0];selectBrush()}
+    function selectBrush(){currentStamp=null;document.getElementById('modeHint').textContent='Touch to Draw';document.querySelectorAll('.craft-btn').forEach(b=>b.classList.remove('active'))}
+    function selectStamp(emoji,el){currentStamp=emoji;document.getElementById('modeHint').textContent='Stamp: '+emoji;document.querySelectorAll('.craft-btn').forEach(b=>b.classList.remove('active'));el.classList.add('active')}
+    function drawTemplate(name){const cx=canvas.width/2,cy=canvas.height/2,s=Math.min(canvas.width/360,canvas.height/460);ctx.save();ctx.translate(cx,cy);ctx.scale(s,s);ctx.translate(-180,-230);ctx.strokeStyle='#d1bdf8';ctx.lineWidth=2.5;ctx.setLineDash([6,4]);
+      if(name==='bouquet'){ctx.beginPath();ctx.moveTo(115,210);ctx.lineTo(245,210);ctx.lineTo(180,350);ctx.closePath();ctx.stroke();for(const [x,y] of [[145,190],[180,175],[215,190]]){ctx.beginPath();ctx.arc(x,y,22,0,Math.PI*2);ctx.stroke()}}
+      else if(name==='butterfly'||name==='paperfly'){ctx.beginPath();ctx.ellipse(125,200,50,38,-.3,0,Math.PI*2);ctx.ellipse(235,200,50,38,.3,0,Math.PI*2);ctx.moveTo(180,160);ctx.lineTo(180,245);ctx.stroke()}
+      else if(name==='cat'){ctx.beginPath();ctx.arc(180,210,70,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.moveTo(125,165);ctx.lineTo(120,115);ctx.lineTo(160,145);ctx.moveTo(195,145);ctx.lineTo(240,115);ctx.lineTo(235,165);ctx.stroke();ctx.beginPath();ctx.arc(150,205,5,0,Math.PI*2);ctx.arc(210,205,5,0,Math.PI*2);ctx.moveTo(170,230);ctx.lineTo(180,238);ctx.lineTo(190,230);ctx.stroke()}
+      else if(name==='heart'){ctx.beginPath();ctx.moveTo(180,300);ctx.bezierCurveTo(270,240,270,150,180,200);ctx.bezierCurveTo(90,150,90,240,180,300);ctx.stroke()}
+      else if(name==='leaf'){ctx.beginPath();ctx.moveTo(180,120);ctx.quadraticCurveTo(280,185,180,340);ctx.quadraticCurveTo(80,185,180,120);ctx.moveTo(180,125);ctx.lineTo(180,325);ctx.stroke()}
+      else if(name==='house'){ctx.beginPath();ctx.moveTo(85,220);ctx.lineTo(180,130);ctx.lineTo(275,220);ctx.lineTo(275,330);ctx.lineTo(85,330);ctx.closePath();ctx.stroke();ctx.strokeRect(155,260,50,70)}
+      else if(name==='ballgown'){ctx.beginPath();ctx.moveTo(152,120);ctx.lineTo(208,120);ctx.lineTo(202,180);ctx.quadraticCurveTo(280,235,295,340);ctx.lineTo(65,340);ctx.quadraticCurveTo(80,235,158,180);ctx.closePath();ctx.stroke()}
+      else if(name==='card'){ctx.strokeRect(75,105,210,250);ctx.beginPath();ctx.moveTo(180,105);ctx.lineTo(180,355);ctx.stroke()}
+      else if(name==='giftbox'){ctx.strokeRect(90,165,180,160);ctx.beginPath();ctx.moveTo(90,220);ctx.lineTo(270,220);ctx.moveTo(180,165);ctx.lineTo(180,325);ctx.stroke()}
+      else if(name==='rainbow'){for(let i=0;i<4;i++){ctx.beginPath();ctx.arc(180,300,115-i*22,Math.PI,Math.PI*2);ctx.stroke()}}
+      else if(name==='totebag'){ctx.strokeRect(110,155,140,175);ctx.beginPath();ctx.arc(180,155,35,Math.PI,Math.PI*2);ctx.stroke()}
+      else if(name==='bracelet'){ctx.beginPath();ctx.arc(180,230,90,0,Math.PI*2);ctx.stroke()}
+      ctx.restore()}
+    function setTemplate(name,el){currentTemplate=name;if(el){el.parentElement.querySelectorAll('.chip-item').forEach(x=>x.classList.remove('active'));el.classList.add('active')}ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);if(name!=='blank')drawTemplate(name);historyStack=[canvas.toDataURL()];selectBrush();document.getElementById('canvasTitle').textContent='🎨 '+(templateNames[name]||'Design Workspace')}
+    function clearCurrentCanvas(){setTemplate(currentTemplate)}function snapshot(){historyStack.push(canvas.toDataURL());if(historyStack.length>40)historyStack.shift()}
+    function undo(){if(historyStack.length<=1)return;historyStack.pop();const img=new Image();img.onload=()=>{ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height)};img.src=historyStack[historyStack.length-1]}
+    function getPos(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*canvas.width/r.width,y:(e.clientY-r.top)*canvas.height/r.height}}
+    function startDraw(e){e.preventDefault();canvas.setPointerCapture?.(e.pointerId);const p=getPos(e);if(currentStamp){ctx.save();ctx.font=Math.max(28,canvas.width*.09)+'px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(currentStamp,p.x,p.y);ctx.restore();snapshot();return}drawing=true;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.strokeStyle=currentColor;ctx.lineWidth=Math.max(3,canvas.width*.011);ctx.lineCap='round';ctx.lineJoin='round'}
+    function moveDraw(e){if(!drawing)return;e.preventDefault();const p=getPos(e);ctx.lineTo(p.x,p.y);ctx.stroke()}function endDraw(){if(drawing){drawing=false;snapshot()}}
+    function attachTouchEvents(){canvas.addEventListener('pointerdown',startDraw);canvas.addEventListener('pointermove',moveDraw);canvas.addEventListener('pointerup',endDraw);canvas.addEventListener('pointercancel',endDraw)}
+    function galleryKey(){return 'atelier_gallery_'+(currentUser||'guest').toLowerCase().replace(/[^a-z0-9_-]/g,'_')}
+    function renderGallery(){const feed=document.getElementById('galleryFeed');feed.replaceChildren();let items=[];try{items=JSON.parse(getStore(galleryKey())||'[]')}catch(e){items=[]}document.getElementById('emptyGallery').style.display=items.length?'none':'block';items.forEach((item,index)=>{const card=document.createElement('article');card.className='gallery-card';const img=document.createElement('img');img.src=item.image;img.alt=item.title+' design';const title=document.createElement('div');title.className='gallery-title';title.textContent=item.title;const del=document.createElement('button');del.type='button';del.className='gallery-delete';del.textContent='Remove design';del.onclick=()=>{items.splice(index,1);setStore(galleryKey(),JSON.stringify(items));renderGallery()};card.append(img,title,del);feed.appendChild(card)})}
+    function saveDesign(){let items=[];try{items=JSON.parse(getStore(galleryKey())||'[]')}catch(e){}items.unshift({image:canvas.toDataURL('image/png'),title:templateNames[currentTemplate]||'Design',createdAt:Date.now()});items=items.slice(0,20);setStore(galleryKey(),JSON.stringify(items));renderGallery()}
+    window.addEventListener('resize',()=>{const image=canvas.toDataURL();const w=Math.max(280,Math.min(canvas.parentElement.clientWidth||340,700));if(Math.abs(canvas.width-w)>2){canvas.width=w;canvas.height=Math.round(w*1.3);const img=new Image();img.onload=()=>ctx.drawImage(img,0,0,canvas.width,canvas.height);img.src=image}});
   </script>
 </body>
 </html>
